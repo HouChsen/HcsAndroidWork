@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.hou.hcsandroidwork.finderr.SearchActivity"
+    android:orientation="vertical">
+
+    <com.hou.hcsandroidwork.finderr.SearchView
+        android:id="@+id/main_search_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </com.hou.hcsandroidwork.finderr.SearchView>
+
+    <ListView
+        android:visibility="gone"
+        android:id="@+id/main_lv_search_results"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </ListView>
+
+    <ListView
+        android:id="@+id/good_show"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp400"
+        android:layout_marginTop="@dimen/dp100"
+        />
+</LinearLayout>

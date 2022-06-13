@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <!--    采用线性布局-->
+    <!--顶部导航栏-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp5"
+        android:background="@color/myblue"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp60"
+        android:layout_margin="@dimen/dp0"
+        android:layout_marginTop="@dimen/dp2"
+        android:background="@color/brown"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/but1"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp60"
+            android:layout_weight="1"
+            android:background="@color/myblue"
+            android:onClick="click1"
+            android:text="@string/home"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp20" />
+
+        <Button
+            android:id="@+id/but2"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp60"
+            android:layout_weight="1"
+            android:background="@color/myblue"
+            android:onClick="click2"
+            android:text="@string/search"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp20" />
+
+        <Button
+            android:id="@+id/but3"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/dp60"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:onClick="click3"
+            android:text="@string/my"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp20" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp5"
+        android:background="@color/myblue"></LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/dp0"
+        android:background="@drawable/ytu_bg"
+        android:layout_marginTop="@dimen/dp0"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp100"
+            android:layout_margin="@dimen/dp0"
+
+            android:orientation="horizontal">
+            <!--头像-->
+            <ImageView
+                android:layout_width="@dimen/dp210"
+                android:layout_height="@dimen/dp80"
+                android:layout_margin="@dimen/dp10"
+                android:layout_weight="2"
+                android:src="@drawable/myhead" />
+
+
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp40" />
+
+        <TextView
+            android:id="@+id/myInformation"
+            android:layout_width="@dimen/dp200"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp0"
+            android:layout_marginTop="@dimen/dp0"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/pink"
+            android:gravity="center"
+            android:text="@string/alterInfor"
+            android:textSize="@dimen/sp30" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp10" />
+
+        <TextView
+            android:id="@+id/changeUser"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="@dimen/dp200"
+            android:layout_height="wrap_content"
+            android:background="@color/brown"
+            android:gravity="center"
+            android:text="@string/changeUser"
+            android:textSize="@dimen/sp30" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp80" />
+
+        <Button
+            android:id="@+id/exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:text="@string/exit"
+            android:textSize="@dimen/sp30" />
+    </LinearLayout>
+
+</LinearLayout>
