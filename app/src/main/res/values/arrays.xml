@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="texts">
+        <item>kuaichong</item>
+        <item>airpods</item>
+        <item>honor9</item>
+        <item>alien97</item>
+        <item>earphone</item>
+        <item>shujuxian</item>
+    </string-array>
+
+    <string-array name="phones">
+        <item>111</item>
+        <item>222</item>
+        <item>333</item>
+        <item>444</item>
+        <item>555</item>
+        <item>666</item>
+    </string-array>
+
+    <string-array name="images">
+        <item>@drawable/cdb</item>
+        <item>@drawable/airpods</item>
+        <item>@drawable/oil</item>
+        <item>@drawable/skirt</item>
+        <item>@drawable/earphone</item>
+        <item>@drawable/shujuxian</item>
+    </string-array>
+
+    <string-array name="imagess">
+        <item>@drawable/img1</item>
+        <item>@drawable/img2</item>
+        <item>@drawable/img3</item>
+        <item>@drawable/img4</item>
+        <item>@drawable/img5</item>
+        <item>@drawable/img6</item>
+        <item>@drawable/img7</item>
+        <item>@drawable/img8</item>
+    </string-array>
+
+
+</resources>

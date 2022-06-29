@@ -1,10 +1,11 @@
 package com.hou.hcsandroidwork.finderr;
-//搜索框，activity_search（SearchActivity中用到
+//搜索框
 import android.app.Activity;
 import android.content.Context;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,40 +21,26 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.hou.hcsandroidwork.R;
+import com.hou.hcsandroidwork.UserName;
 
 
 public class SearchView extends LinearLayout implements View.OnClickListener {
+    private EditText etInput;//输入框
+    private ImageView ivDelete;//删除键
+    private Button btnBack;//返回按钮
+    //SearchActivity sa;
+    //UserName commName=null;
+    private Context mContext;//上下文对象
+    private ListView lvTips;//弹出列表
+    private ArrayAdapter<String> mHintAdapter;    //提示adapter （推荐adapter）
+    private ArrayAdapter<String> mAutoCompleteAdapter;//自动补全adapter 只显示名字
+    private SearchViewListener mListener;//搜索回调接口
 
-    //输入框
-    private EditText etInput;
-
-     //删除键
-    private ImageView ivDelete;
-
-     //返回按钮
-    private Button btnBack;
-
-     //上下文对象
-    private Context mContext;
-
-     //弹出列表
-    private ListView lvTips;
-
-     //提示adapter （推荐adapter）
-    private ArrayAdapter<String> mHintAdapter;
-
-     //自动补全adapter 只显示名字
-    private ArrayAdapter<String> mAutoCompleteAdapter;
-
-     //搜索回调接口
-    private SearchViewListener mListener;
-
-     //设置搜索回调接口
+    //设置搜索回调接口
     public void setSearchViewListener(SearchViewListener listener) {
         mListener = listener;
     }
 
-    //构造函数
     public SearchView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
@@ -67,14 +54,20 @@ public class SearchView extends LinearLayout implements View.OnClickListener {
         btnBack = (Button) findViewById(R.id.search_btn_back);
         lvTips = (ListView) findViewById(R.id.search_lv_tips);//用于显示搜索信息的列表
 
+        //sa=new SearchActivity();
+        //点击listView事件
         lvTips.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                //set edit text
                 String text = lvTips.getAdapter().getItem(i).toString();
-                etInput.setText(text);
+                Log.d("ss","ss");
+                //sa.setCommName(text);
+                SearchActivity.instance.setCommName(text);
+                Log.d("ss2","ss");
+                //userName.setCommName(text);
+                etInput.setText(text);//将被点击的listView中的item中的信息填充到搜索框内
                 etInput.setSelection(text.length());
-                //hint list view gone and result list view show
+                //隐藏hint list view并显示result list view
                 lvTips.setVisibility(View.GONE);
                 notifyStartSearching(text);
             }
@@ -85,6 +78,8 @@ public class SearchView extends LinearLayout implements View.OnClickListener {
 
         etInput.addTextChangedListener(new EditChangedListener());
         etInput.setOnClickListener(this);
+
+        //点击回车按钮调用搜索
         etInput.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView textView, int actionId, KeyEvent keyEvent) {
@@ -107,28 +102,19 @@ public class SearchView extends LinearLayout implements View.OnClickListener {
         imm.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
     }
 
-    /**
-     * 设置热搜版提示 adapter
-     */
-//    public void setTipsHintAdapter(ArrayAdapter<String> adapter) {
-//        this.mHintAdapter = adapter;
-//        if (lvTips.getAdapter() == null) {
-//            lvTips.setAdapter(mHintAdapter);
-//        }
-//    }
-
      //设置自动补全adapter
     public void setAutoCompleteAdapter(ArrayAdapter<String> adapter) {
         this.mAutoCompleteAdapter = adapter;
     }
 
+
     //检查搜索框内容的变化情况
     private class EditChangedListener implements TextWatcher {
+
         @Override
         public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
 
         }
-
         @Override
         public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             if (!"".equals(charSequence.toString())) {
@@ -159,14 +145,14 @@ public class SearchView extends LinearLayout implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.search_et_input:
+            case R.id.search_et_input://item的输入框
                 lvTips.setVisibility(VISIBLE);
                 break;
-            case R.id.search_iv_delete:
+            case R.id.search_iv_delete://删除
                 etInput.setText("");
                 ivDelete.setVisibility(GONE);
                 break;
-            case R.id.search_btn_back:
+            case R.id.search_btn_back://返回
                 ((Activity) mContext).finish();
                 break;
         }
@@ -189,10 +175,6 @@ public class SearchView extends LinearLayout implements View.OnClickListener {
          */
         void onSearch(String text);
 
-//        /**
-//         * 提示列表项点击时回调方法 (提示/自动补全)
-//         */
-//        void onTipsItemClick(String text);
     }
 
 }

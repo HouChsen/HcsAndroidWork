@@ -23,7 +23,7 @@ public class MyActivity extends AppCompatActivity {
     private TextView myComm;
     private TextView changeUser;
     private Button exit;
-    private String Exit="exit";
+    private String Exit="";
     private long lastClickTime;//用于记录上次的点击时间
 
     @Override
@@ -31,6 +31,7 @@ public class MyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my);
 
+        Exit=(String) this.getResources().getText(R.string.aExit);
         myInfor=(TextView)findViewById(R.id.myInformation);
         changeUser=(TextView)findViewById(R.id.changeUser);
         exit=(Button) findViewById(R.id.exit);

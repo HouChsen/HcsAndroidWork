@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.pm.PackageManager;
+import android.content.res.TypedArray;
 import android.net.Uri;
 import android.os.Handler;
 import android.content.DialogInterface;
@@ -31,6 +32,7 @@ import com.hou.hcsandroidwork.finderr.SearchActivity;
 
 import java.io.InputStream;
 import java.util.Arrays;
+import java.util.List;
 
 import static android.R.attr.phoneNumber;
 import static com.hou.hcsandroidwork.R.id.name;
@@ -41,22 +43,26 @@ public class ListView_Activity extends AppCompatActivity {
     final int FLAG_MSG = 0x001;//定义要发送的消息代码
     private ViewFlipper flipper;
     private Message message;
-    private String wwhetherPhone="\n是否将电话";
-    private String inPhoneText="添加进通讯录";
-    private String detailInfor="的详细信息";
-    private int[] images2 = new int[]{R.drawable.img1, R.drawable.img2, R.drawable.img3,
-            R.drawable.img4, R.drawable.img5, R.drawable.img6, R.drawable.img7, R.drawable.img8};
-    private Animation[] animation = new Animation[2];//定义动画数组，为ViewFlipper指定切换动画
-
     private Button homeBtn;
     private Button searchBtn;
     private Button myBtn;
-    private	 String[]  texts=new  String[]{"快充","airpods","honor9","alien97","earphone","shujuxian"};
-    private	 String[]  phones=new  String[]{"111","222","333","444","555","666"};
+    private String wwhetherPhone="";
+    private String inPhoneText="";
+    private String detailInfor="";
+//    private int[] images2 = new int[]{R.drawable.img1, R.drawable.img2, R.drawable.img3,
+//            R.drawable.img4, R.drawable.img5, R.drawable.img6, R.drawable.img7, R.drawable.img8};
+    private Animation[] animation = new Animation[2];//定义动画数组，为ViewFlipper指定切换动画
+    private Integer lenn;
+    private Integer[] resIdss;
+    private TypedArray arr;
+    private List<Integer> imagesss;
 
-    private Integer[] images=new Integer[]{R.mipmap.cdb, R.mipmap.airpods,
-            R.mipmap.oil, R.mipmap.skirt, R.mipmap.earphone, R.mipmap.shujuxian
-    };
+
+    private	 String[]  texts;//=new  String[]{"快充","airpods","honor9","alien97","earphone","shujuxian"};
+    private	 String[]  phones;//=new  String[]{"111","222","333","444","555","666"};
+    private Integer len;
+    private Integer[] resIds;
+    private TypedArray ar;
 
     ListView mListView = null;
 
@@ -65,6 +71,31 @@ public class ListView_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_view_);
 
+        wwhetherPhone=(String) this.getResources().getText(R.string.awwhetherPhone);
+        inPhoneText=(String) this.getResources().getText(R.string.ainPhoneText);
+        detailInfor=(String) this.getResources().getText(R.string.adetailInfor);
+
+
+        texts=getResources().getStringArray(R.array.texts);
+        phones=getResources().getStringArray(R.array.phones);
+        ar=getResources().obtainTypedArray(R.array.images);
+        arr=getResources().obtainTypedArray(R.array.imagess);
+
+
+        len=ar.length();
+        resIds=new Integer[len];
+        for(int i=0;i<len;i++){
+            resIds[i]=ar.getResourceId(i,0);
+        }
+        ar.recycle();
+
+        lenn=arr.length();
+        resIdss=new Integer[lenn];
+        for(int i=0;i<lenn;i++){
+            resIdss[i]=arr.getResourceId(i,0);
+        }
+        arr.recycle();
+        imagesss=Arrays.asList(resIdss);
 
         mListView =(ListView) findViewById(R.id.listview);
         homeBtn=(Button)findViewById(R.id.but1);
@@ -89,7 +120,7 @@ public class ListView_Activity extends AppCompatActivity {
         }
 
         TextImageAdapter adapter = new TextImageAdapter(this, Arrays.asList(texts),
-                Arrays.asList(images),Arrays.asList(phones));
+                Arrays.asList(resIds),Arrays.asList(phones));
 
         mListView.setAdapter(adapter);
 
@@ -141,9 +172,9 @@ public class ListView_Activity extends AppCompatActivity {
         //下面是平移动画
         flipper =(ViewFlipper)findViewById(R.id.viewFlipper);
 
-        for (int i = 0; i < images2.length; i++) {
+        for (int i = 0; i < resIdss.length; i++) {
             ImageView imageView = new ImageView(ListView_Activity.this);
-            imageView.setImageResource(images2[i]);
+            imageView.setImageResource(imagesss.get(i));
             flipper.addView(imageView);
         }
         //初始化动画数组

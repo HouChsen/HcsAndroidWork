@@ -14,7 +14,7 @@ public abstract class CommonAdapter<T> extends BaseAdapter{
     protected List<T> mData;
     protected int mLayoutId;
 
-    public CommonAdapter(Context context,List<T> data,int layoutId){
+    public CommonAdapter(Context context,List<T> data,int layoutId){//初始化
         mContext = context;
         mData = data;
         mLayoutId = layoutId;
@@ -42,8 +42,6 @@ public abstract class CommonAdapter<T> extends BaseAdapter{
         return holder.getConvertView();
     }
 
-    /**
-     * get holder convert
-     */
+    //SearchAdapter.java
     public abstract void convert(ViewHolder holder,int position);
 }

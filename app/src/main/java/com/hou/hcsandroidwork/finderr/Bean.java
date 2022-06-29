@@ -2,9 +2,9 @@ package com.hou.hcsandroidwork.finderr;
 
 public class Bean {
 
-    private int iconId;
-    private String title;
-    private String phone;
+    private int iconId;//图片id
+    private String title;//商品名称
+    private String phone;//电话
 
     public Bean(int iconId, String title, String phone) {
         this.iconId = iconId;

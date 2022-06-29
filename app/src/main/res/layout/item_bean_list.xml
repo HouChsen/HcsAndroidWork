@@ -1,61 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
     <ImageView
-        android:src="@drawable/myhead"
         android:id="@+id/item_search_iv_icon"
-        android:layout_marginLeft="@dimen/dp20"
-        android:layout_centerVertical="true"
-        android:padding="@dimen/dp4"
         android:layout_width="@dimen/dp100"
-        android:layout_height="@dimen/dp100"/>
+        android:layout_height="@dimen/dp100"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/dp20"
+        android:padding="@dimen/dp4"
+        android:src="@drawable/myhead" />
+
     <TextView
         android:id="@+id/bbb"
-        android:layout_marginTop="@dimen/dp10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp10"
         android:layout_toRightOf="@id/item_search_iv_icon"
         android:text="@string/comm"
-        android:textSize="@dimen/sp14"
         android:textColor="@color/black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:textSize="@dimen/sp14" />
+
     <TextView
         android:id="@+id/item_search_tv_title"
-        android:layout_marginTop="@dimen/dp10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp10"
         android:layout_toRightOf="@id/bbb"
         android:text="@string/Title"
-        android:textSize="@dimen/sp14"
         android:textColor="@color/black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:textSize="@dimen/sp14" />
+
     <TextView
         android:id="@+id/aaa"
-        android:layout_marginTop="@dimen/dp20"
-        android:layout_marginLeft="@dimen/dp10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_below="@id/item_search_tv_title"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp20"
         android:layout_toRightOf="@+id/item_search_iv_icon"
         android:text="@string/thePhone"
-        android:textSize="@dimen/sp14"
         android:textColor="@color/black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:textSize="@dimen/sp14" />
+
     <TextView
         android:id="@+id/item_search_tv_phone"
-        android:layout_marginTop="@dimen/dp20"
-        android:layout_marginLeft="@dimen/dp10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
 
         android:layout_below="@id/item_search_tv_title"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp20"
         android:layout_toRightOf="@+id/aaa"
         android:text="@string/Title"
-        android:textSize="@dimen/sp14"
         android:textColor="@color/black"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-
+        android:textSize="@dimen/sp14" />
 
 
 </RelativeLayout>

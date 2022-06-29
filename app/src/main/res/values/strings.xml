@@ -34,9 +34,6 @@
     <string name="back">返回</string>
     <string name="alterSuccess">修改成功！</string>
     <string name="hasPermission">已授权</string>
-    <string name="detailInfor">的详细信息</string>
-    <string name="wwhetherPhone">\n是否将电话</string>
-    <string name="inPhoneText">添加进通讯录</string>
     <string name="addSuccess">成功添加</string>
     <string name="cancel">取消</string>
     <string name="abandonAdd">放弃添加</string>
@@ -69,4 +66,16 @@
     <string name="comm">商品：</string>
     <string name="thePhone">电话：</string>
     <string name="Title">Title</string>
+    <string name="searchFinish">搜索完成</string>
+    <string name="aExit">exit</string>
+    <string name="awwhetherPhone">是否将电话</string>
+    <string name="ainPhoneText">添加进通讯录</string>
+    <string name="adetailInfor">的详细信息</string>
+    <string name="auser_mes">user_mes</string>
+    <string name="aflag">flag</string>
+    <string name="auser">user</string>
+    <string name="apsw">psw</string>
+    <string name="auser_password">user_password</string>
+    <string name="auser_phone">user_phone</string>
+    <string name="auser_name">user_name</string>
 </resources>

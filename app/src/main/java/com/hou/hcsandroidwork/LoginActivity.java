@@ -14,6 +14,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.hou.hcsandroidwork.finderr.SearchActivity;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -29,17 +31,16 @@ public class LoginActivity extends Activity {
     private String psw_query = null;
     private String tmp = null;
 
-    private String RM="user_mes";
-    private String RMFlag="flag";
-    private String RMUser="user";
-    private String RMPsw="psw";
+    private String RM="";
+    private String RMFlag="";
+    private String RMUser="";
+    private String RMPsw="";
     private String kong="";
 
-    private String DBPsw="user_password";
-    private String DBPhone="user_phone";
-    private String DBName="user_name";
-
-    private String Exit="exit";
+    private String DBPsw="";
+    private String DBPhone="";
+    private String DBName="";
+    private String Exit="";
 
     Cursor cursor = null;
     UserName userName = null;
@@ -52,6 +53,15 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        RM=(String) this.getResources().getText(R.string.auser_mes);
+        RMFlag=(String) this.getResources().getText(R.string.aflag);
+        RMUser=(String) this.getResources().getText(R.string.auser);
+        RMPsw=(String) this.getResources().getText(R.string.apsw);
+        DBPsw=(String) this.getResources().getText(R.string.auser_password);
+        DBPhone=(String) this.getResources().getText(R.string.auser_phone);
+        DBName=(String) this.getResources().getText(R.string.auser_name);
+
+        Exit=(String) this.getResources().getText(R.string.aExit);
         user_name = (EditText) findViewById(R.id.names);
         user_password = (EditText) findViewById(R.id.password);
         rem_psw = (CheckBox) findViewById(R.id.jizhu);

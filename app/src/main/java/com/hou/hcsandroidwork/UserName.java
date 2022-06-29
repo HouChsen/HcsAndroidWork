@@ -14,6 +14,7 @@ import java.util.List;
 
 public class UserName extends Application {
     private String userNAME = "";
+    private String commName="";
 
 
     public String getUserNAME() {
@@ -22,5 +23,13 @@ public class UserName extends Application {
 
     public void setUserNAME(String name) {
         userNAME = name;
+    }
+
+    public String getCommName() {
+        return commName;
+    }
+
+    public void setCommName(String commName) {
+        this.commName = commName;
     }
 }

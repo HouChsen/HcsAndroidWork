@@ -16,9 +16,8 @@ public class ViewHolder {
     private Context mContext;
     private View mConvertView;
     private int mPosition;
-    /**
-     * init holder
-     */
+
+    //初始化holder
     public ViewHolder(Context context, int layoutId, ViewGroup parent, int position) {
         mConvertView = LayoutInflater.from(context).inflate(layoutId,parent,false);
         mViews = new SparseArray<>();
@@ -26,9 +25,7 @@ public class ViewHolder {
         mConvertView.setTag(this);
     }
 
-    /**
-     *  获取viewHolder
-     */
+    //获取viewHolder
     public static ViewHolder getHolder(Context context, View convertView,
                                        int layoutId, ViewGroup parent, int position) {
         if(convertView == null){
@@ -44,9 +41,7 @@ public class ViewHolder {
         return mConvertView;
     }
 
-    /**
-     * get view
-     */
+    //获取view
     public <T extends View> T getView(int viewId){
         View view = mViews.get(viewId);
         if(view == null){
@@ -56,27 +51,21 @@ public class ViewHolder {
         return (T)view;
     }
 
-    /**
-     * set text
-     */
+    //设置text
     public ViewHolder setText(int viewId, String text){
         TextView tv = getView(viewId);
         tv.setText(text);
         return this;
     }
 
-    /**
-     *  set image res
-     */
+    //设置图片资源
     public ViewHolder setImageResource(int viewId,int resId){
         ImageView iv = getView(viewId);
         iv.setImageResource(resId);
         return this;
     }
 
-    /**
-     *  set image bitmap
-     */
+    //设置image bitmap，现在用不到了，以后加功能，暂留
     public ViewHolder setImageBitmap(int viewId,Bitmap bitmap){
         ImageView iv = getView(viewId);
         iv.setImageBitmap(bitmap);
